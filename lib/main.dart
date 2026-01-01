@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/home_page.dart';
 import 'package:flutter_application_1/pages/login_page.dart';
+import 'package:flutter_application_1/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -17,11 +18,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       themeMode: ThemeMode.light,
       theme: ThemeData(
-      primarySwatch: Colors.deepPurple,
-      fontFamily: GoogleFonts.lato().fontFamily),
+        primarySwatch: Colors.deepPurple,
+        fontFamily: GoogleFonts.lato().fontFamily,
+      ),
+      // debugShowCheckedModeBanner: false,   // debug banner hatane ke liye
       darkTheme: ThemeData(brightness: Brightness.dark),
-      // initialRoute: "/",
-      routes: {"/": (context) => LoginPage(), "/home": (context) => HomePage()},
+      initialRoute: "/",
+      routes: {"/": (context) => LoginPage(),
+      //  "/home": (context) => HomePage(),
+      MyRoutes.homeRoute:(context) => HomePage(),
+      MyRoutes.loginRoute: (context) => LoginPage(), // baar baar object create na ho isliye
+       },
     );
   }
 }
